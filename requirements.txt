@@ -6,3 +6,4 @@ pandas
 google-cloud-aiplatform
 geopy
 plotly
+python-dotenv
