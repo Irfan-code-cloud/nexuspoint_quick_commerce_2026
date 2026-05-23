@@ -87,7 +87,7 @@ Both feature unified color-mapping, customized tooltips, and symmetrical borderi
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/nexus_point_2026.git
+   git clone https://github.com/Irfan-code-cloud/nexuspoint_quick_commerce_2026.git
    cd nexus_point_2026
    ```
 
