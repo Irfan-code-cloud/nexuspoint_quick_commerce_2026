@@ -1,0 +1,146 @@
+/* Target the main metric container to adapt to Light/Dark mode automatically */
+[data-testid="stMetric"] {
+    /* Use Streamlit theme variables for native Light/Dark compatibility */
+    background-color: var(--secondary-background-color);
+    color: var(--text-color);
+    
+    /* Thick white border on top, right, and bottom to pop against dark theme */
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+
+    /* Retain the green accent line on the left */
+    border-left: 2px solid #4CAF50;
+    
+    /* Ensure clean, modern corners */
+    border-radius: 8px;
+    
+    /* Generous padding so the white border doesn't crowd the text */
+    padding: 16px;
+    
+    /* Slightly increased drop shadow for better 3D pop */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    
+    min-width: 0; /* Prevents flexbox from overflowing */
+}
+
+/* Scale down the massive numbers so they fit in 4 columns on small screens */
+[data-testid="stMetricValue"] {
+    font-size: 1.4rem !important; 
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+/* Ensure the label text wraps nicely */
+[data-testid="stMetricLabel"] {
+    font-size: 0.85rem !important;
+    white-space: normal !important;
+    margin-bottom: 4px;
+}
+
+/* Aggressively strip background colors from the metric delta and all nested elements */
+[data-testid="stMetricDelta"],
+[data-testid="stMetricDelta"] * {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+/* Kill Streamlit's massive default bottom padding to pull the footer up */
+.block-container, 
+[data-testid="stAppViewBlockContainer"],
+[data-testid="block-container"] {
+    padding-bottom: 2.5rem !important;
+    padding-top: 2rem !important;
+}
+
+/* Responsive Typography for Mobile & Tablets */
+@media screen and (max-width: 768px) {
+    /* Scale down main headers */
+    h1 { font-size: 1.7rem !important; }
+    h2 { font-size: 1.4rem !important; }
+    h3 { font-size: 1.1rem !important; }
+
+    /* Scale down standard text */
+    p, li, div { font-size: 0.85rem !important; }
+
+    /* Scale down the massive KPI metric numbers */
+    [data-testid="stMetricValue"] > div {
+        font-size: 1.4rem !important;
+    }
+
+    /* Scale down the metric titles */
+    [data-testid="stMetricLabel"] > div > p {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Slightly reduce the padding on metric cards to save space */
+    [data-testid="stMetric"] {
+        padding: 10px !important;
+    }
+}
+
+/* Target the primary button specifically inside modal dialogs to make it red */
+div[role="dialog"] div[data-testid="stButton"] button[kind="primary"] {
+    background-color: #ff4b4b !important;
+    border: 1px solid #ff4b4b !important;
+    color: white !important;
+}
+
+/* Add hover state for the destructive button */
+div[role="dialog"] div[data-testid="stButton"] button[kind="primary"]:hover {
+    background-color: #ff1a1a !important;
+    border: 1px solid #ff1a1a !important;
+}
+
+/* Slight padding tweak to make the modal feel more spacious */
+div[role="dialog"] {
+    padding: 1rem !important;
+    border-radius: 10px !important;
+}
+
+/* 
+Override the global theme specifically for destructive actions.
+Target the 'Clear All Data' button specifically inside the sidebar using its parent's testid.
+*/
+[data-testid="stSidebar"] div.stButton > button {
+    background-color: #ff4b4b !important;
+    color: #ffffff !important;
+    border: 1px solid #ff4b4b !important;
+    font-weight: 600 !important;
+}
+
+/* Add a hover state for better UX */
+[data-testid="stSidebar"] div.stButton > button:hover {
+    background-color: #ff1a1a !important;
+    border: 1px solid #ff1a1a !important;
+    color: #ffffff !important;
+}
+
+.footer-container {
+    margin-top: 2rem;
+    padding-top: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.footer-icons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.footer-icon-link {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+}
+.footer-icon-link:hover {
+    color: rgba(255, 255, 255, 1);
+}
+.footer-icon-link svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}

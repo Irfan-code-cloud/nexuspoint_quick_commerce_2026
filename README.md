@@ -1,0 +1,114 @@
+# Nexus Point | Quick Commerce Optimization 🚀
+
+**Nexus Point** is an advanced, executive-level Streamlit dashboard designed to optimize Quick Commerce (q-commerce) delivery networks. By fusing machine learning, geospatial analytics, and generative AI, Nexus Point empowers operations managers to visualize live demand, perfectly position delivery hubs, and dynamically simulate unit economics in real-time.
+
+---
+
+## 📖 Overview
+
+In the highly competitive world of under-20-minute delivery, the difference between profitability and massive cash burn comes down to **network geometry** and **fleet utilization**.
+
+Nexus Point solves this by ingesting raw order logs and available real estate properties to automatically recommend the optimal "Dark Store" hub locations. It evaluates localized demand, maps competitor threat radiuses, flags AI-detected demand surges, and translates predictive forecasts into exact rider headcount requirements.
+
+---
+
+## 🏗️ Architecture & Project Structure
+
+The project strictly follows a "Separation of Concerns" architecture to keep the Streamlit UI clean, fast, and maintainable.
+
+```text
+nexus_point_2026/
+├── app.py                  # The main Streamlit orchestrator (Layout, State, Routing)
+├── requirements.txt        # Python dependencies
+├── .env                    # Environment variables (API Keys)
+├── data/
+│   ├── generator.py        # Script to generate synthetic geospatial order data
+│   ├── orders.csv          # Demand data
+│   └── properties.csv      # Supply data (Available real estate)
+├── src/
+│   ├── engine.py           # Core ML engine (K-Means, Prophet forecasting, Isolation Forest)
+│   └── ai_analyst.py       # Integration with Google Gemini for LLM-powered Strategy Cards
+└── ui/
+    ├── style.css           # Custom CSS injection for the "Dark SaaS" aesthetic
+    ├── map_factory.py      # Folium map generation and HTML marker popups
+    └── chart_factory.py    # Complex Plotly graph objects
+```
+
+---
+
+## 🛠️ Tech Stack
+
+Nexus Point is built entirely in Python, leveraging the most powerful data science libraries available:
+
+### 1. Application & UI
+*   **[Streamlit](https://streamlit.io/):** The core framework powering the reactive frontend and backend logic.
+*   **Custom CSS:** Extensive CSS injection to override default Streamlit styles, creating a premium "Dark SaaS" look.
+
+### 2. Geospatial Intelligence
+*   **[Folium](https://python-visualization.github.io/folium/):** For rendering interactive Leaflet maps.
+*   **[streamlit-folium](https://folium.streamlit.app/):** To seamlessly bridge Folium maps into the Streamlit DOM.
+
+### 3. Machine Learning & Analytics
+*   **[Scikit-Learn](https://scikit-learn.org/):** Powers the `K-Means` clustering (hub placement) and `Isolation Forest` (spatial anomaly detection).
+*   **[Prophet](https://facebook.github.io/prophet/):** Handles advanced time-series forecasting to predict future hourly demand volume.
+*   **Pandas & NumPy:** The backbone for all data manipulation and dynamic financial math.
+
+### 4. Data Visualization
+*   **[Plotly](https://plotly.com/python/):** Used exclusively for high-fidelity, interactive charts (Bar, Donut, and Predictive Line graphs).
+
+### 5. Generative AI
+*   **Google Gemini SDK (Vertex AI):** Acts as the "AI Analyst," digesting the mathematical outputs of the dashboard to generate human-readable Executive Strategy Cards.
+
+---
+
+## ✨ Key Features
+
+### 📍 Dynamic Hub Clustering (K-Means)
+The dashboard groups thousands of live orders into distinct geographic clusters. It then calculates the exact geometric centroid of each cluster and matches it against your available real-estate supply to recommend the optimal Dark Store locations.
+
+### 💸 Live Unit Economics Engine
+Adjust Average Order Value (AOV), Rider Fees, and Fixed Store OPEX via intuitive sliders. The dashboard instantly recalculates **Projected Profit**, **Blended Cost/Order**, and **Network Break-Even**, taking into account a standard 25% gross product margin (COGS).
+
+### 🚨 AI Spatial Anomaly Detection
+With the flip of a switch, the system deploys an Isolation Forest algorithm to detect localized demand anomalies (flash surges) and plots them on the map with actionable fleet deployment protocols.
+
+### 📈 Predictive Fleet Forecasting
+Instead of just showing raw predicted orders, Nexus Point translates time-series volume forecasts into **Required Delivery Riders** (using `np.ceil`), ensuring operations managers know exactly how many humans to schedule per hour.
+
+### 📊 Executive Financial Visualizations
+Features completely custom, meticulously aligned Plotly charts:
+*   A sleek, "thin-bar" layout comparing **Order Volume by Category**.
+*   A matching Pie Chart displaying the **Revenue Distribution (%)**.
+Both feature unified color-mapping, customized tooltips, and symmetrical bordering.
+
+---
+
+## 🚀 How to Run Locally
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/nexus_point_2026.git
+   cd nexus_point_2026
+   ```
+
+2. **Install the dependencies:**
+   It is recommended to use a virtual environment.
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set up Environment Variables:**
+   Create a `.env` file in the root directory and add your API credentials:
+   ```env
+   GEMINI_API_KEY="your_google_api_key_here"
+   ```
+
+4. **Launch the Dashboard:**
+   ```bash
+   streamlit run app.py
+   ```
+
+*Enjoy optimizing the future of delivery! 📦⚡*
+
+*Engineered by Irfan Khattak*
+

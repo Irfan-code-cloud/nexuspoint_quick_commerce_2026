@@ -1,0 +1,8 @@
+streamlit
+folium
+streamlit-folium
+scikit-learn
+pandas
+google-cloud-aiplatform
+geopy
+plotly
