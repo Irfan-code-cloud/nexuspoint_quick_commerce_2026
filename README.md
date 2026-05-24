@@ -22,7 +22,7 @@ Provides a real-time, high-level overview of network health. It instantly calcul
 ### 2. AI Spatial Mapping & Anomaly Detection
 An interactive Folium map that visualizes exact customer demand density. It plots the optimal dark store centroids using K-Means clustering, overlays competitor threat radiuses, and uses an Isolation Forest algorithm to flag highly-localized flash surges.
 
-![Geospatial Mapping & Anomalies](images/spatial-map.jpg)
+![Geospatial Mapping & Anomalies](images/spatial-map.png)
 
 ### 3. Dynamic Network Planner
 A tactical operations checklist allowing managers to toggle specific facilities on or off. The system instantly recalculates the live network profit, break-even targets, and maximum daily capacity based on the active hubs.
