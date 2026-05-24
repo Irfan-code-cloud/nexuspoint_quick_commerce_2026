@@ -12,6 +12,44 @@ Nexus Point solves this by ingesting raw order logs and available real estate pr
 
 ---
 
+## 📊 Required Data Schemas
+
+> **🛡️ Disclaimer on Data Privacy:** *All datasets used and provided in this repository (including the examples below) consist entirely of synthetically generated data. No real-world e-commerce, customer, or proprietary corporate data is used, as such information is highly sensitive and strictly confidential.*
+
+To utilize the Nexus Point dashboard, operations managers must upload two distinct datasets: **Demand Data** (Customer Orders) and **Supply Data** (Available Real Estate). 
+
+The system relies on specific column headers to process geospatial clustering, financial KPIs, and AI forecasting correctly. Both files must be in `.csv` format.
+
+### 1. Demand Data (`orders.csv`)
+This dataset represents historical customer transactions. It is used to generate the spatial heatmaps, run the K-Means clustering algorithm, and feed the Prophet ML model for time-series forecasting.
+
+| Column Name | Data Type | Description |
+| :--- | :--- | :--- |
+| `Order_ID` | String | Unique identifier for the transaction. |
+| `Latitude` | Float | The exact geospatial latitude of the customer delivery location. |
+| `Longitude` | Float | The exact geospatial longitude of the customer delivery location. |
+| `Order_Value_PKR` | Numeric | The gross cart value (used for revenue and profit calculations). |
+| `Category` | String | The primary product category (e.g., Grocery, Snacks, Pharmacy). |
+| `Order_Timestamp` | Datetime | The exact date and time of the order (Format: `YYYY-MM-DD HH:MM:SS`). |
+
+![Raw Orders Data Example](images/orders-data.png)
+
+### 2. Supply Data (`properties.csv`)
+This dataset represents the available commercial real estate that can be converted into "Dark Stores". The engine cross-references these locations against the demand centroids to find the most cost-effective and geographically strategic hubs.
+
+| Column Name | Data Type | Description |
+| :--- | :--- | :--- |
+| `Property_ID` | String | Unique identifier for the real estate listing. |
+| `Latitude` | Float | The geospatial latitude of the property. |
+| `Longitude` | Float | The geospatial longitude of the property. |
+| `Rent_PKR` | Numeric | The monthly lease cost of the facility (used for break-even analysis). |
+| `Square_Footage` | Numeric | The physical size of the location. |
+| `Max_Daily_Orders` | Numeric | The maximum fulfillment capacity the location can handle per day. |
+
+![Raw Properties Data Example](images/properties-data.png)
+
+---
+
 ## 📸 Platform Features & Visuals
 
 ### 1. Mission Control & Executive KPIs
