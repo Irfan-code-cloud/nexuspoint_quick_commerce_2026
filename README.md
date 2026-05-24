@@ -12,6 +12,40 @@ Nexus Point solves this by ingesting raw order logs and available real estate pr
 
 ---
 
+## 📸 Platform Features & Visuals
+
+### 1. Mission Control & Executive KPIs
+Provides a real-time, high-level overview of network health. It instantly calculates total projected profit, blended cost per order, total daily capacity, and network break-even points by factoring in product COGS, rider fees, and fixed store OPEX.
+
+![Executive KPIs Dashboard](images/kpi-dashboard.png)
+
+### 2. AI Spatial Mapping & Anomaly Detection
+An interactive Folium map that visualizes exact customer demand density. It plots the optimal dark store centroids using K-Means clustering, overlays competitor threat radiuses, and uses an Isolation Forest algorithm to flag highly-localized flash surges.
+
+![Geospatial Mapping & Anomalies](images/spatial-map.jpg)
+
+### 3. Dynamic Network Planner
+A tactical operations checklist allowing managers to toggle specific facilities on or off. The system instantly recalculates the live network profit, break-even targets, and maximum daily capacity based on the active hubs.
+
+![Network Planner](images/network-planner.PNG)
+
+### 4. AI Location Insights (Vertex AI Strategy)
+Leverages Google's Vertex AI to generate a comprehensive, automated strategy card for any selected dark store. It analyzes order counts, top product categories, and local competitor threats to provide actionable operational directives.
+
+![AI Strategy Card](images/ai-strategy.png)
+
+### 5. Operations: Rider Fleet Scheduling
+Translates raw, time-series volume predictions (via Prophet ML) into exact human headcount requirements. The hourly charts allow operations managers to precisely schedule delivery riders to match forecasted demand peaks without overstaffing.
+
+![Fleet Scheduling](images/fleet-forecast.png)
+
+### 6. Product Category Analysis
+Custom, meticulously aligned Plotly charts that audit inventory performance. By comparing unit velocity (Bar Chart) against revenue weight (Pie Chart), it highlights which categories drive volume versus actual profitability.
+
+![Category Analytics](images/category-analysis.png)
+
+---
+
 ## 🏗️ Architecture & Project Structure
 
 The project strictly follows a "Separation of Concerns" architecture to keep the Streamlit UI clean, fast, and maintainable.
