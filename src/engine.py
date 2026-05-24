@@ -211,7 +211,7 @@ def generate_predictive_forecast(base_aov, day_of_week="Monday"):
     if "Order_Timestamp" not in df.columns:
         end_date = datetime.now().replace(minute=0, second=0, microsecond=0)
         start_date = end_date - timedelta(days=90)
-        date_rng = pd.date_range(start=start_date, end=end_date, freq="H")
+        date_rng = pd.date_range(start=start_date, end=end_date, freq="h")
 
         volume_multiplier = max(1.0, base_aov / 1500.0)
 
@@ -233,7 +233,7 @@ def generate_predictive_forecast(base_aov, day_of_week="Monday"):
         hist_df = pd.DataFrame({"ds": date_rng, "y": volume.astype(int)})
     else:
         df["Order_Timestamp"] = pd.to_datetime(df["Order_Timestamp"])
-        hist_df = df.set_index("Order_Timestamp").resample("H").size().reset_index()
+        hist_df = df.set_index("Order_Timestamp").resample("h").size().reset_index()
         hist_df.columns = ["ds", "y"]
 
     # Initialize and fit the Prophet model
@@ -246,7 +246,7 @@ def generate_predictive_forecast(base_aov, day_of_week="Monday"):
     m.fit(hist_df)
 
     # Predict the next 24 hours
-    future = m.make_future_dataframe(periods=24, freq="H")
+    future = m.make_future_dataframe(periods=24, freq="h")
     forecast = m.predict(future)
 
     # Extract only the last 24 hours (the prediction)
