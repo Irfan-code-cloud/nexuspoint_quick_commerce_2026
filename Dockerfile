@@ -14,8 +14,6 @@ COPY . .
 # Expose the port Cloud Run expects
 EXPOSE 8080
 
-# Healthcheck to ensure Streamlit is running
-HEALTHCHECK CMD curl --fail http://localhost:8080/_stcore/health
-
 # Run the Streamlit app on port 8080
 CMD ["streamlit", "run", "app.py", "--server.port=8080", "--server.address=0.0.0.0"]
+
