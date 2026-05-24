@@ -4,9 +4,7 @@ data/orders.csv
 data/properties.csv
 __pycache__/
 *.pyc
-data/api_lock.json
 ui/__pycache__/
-data/api_lock.json
 src/__pycache__
 
 
