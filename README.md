@@ -6,7 +6,7 @@
 
 ## 🚀 Deployment & Live Demo
 
-**Live Dashboard:** https://nexuspointquickcommerce2026-k4uvqxnybqbmgxbctgmjtu.streamlit.app/
+**Live Dashboard:** [Click here to launch the application](https://nexuspointquickcommerce2026-k4uvqxnybqbmgxbctgmjtu.streamlit.app)
 
 This application is deployed live on **Streamlit Community Cloud**.
 
