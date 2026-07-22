@@ -6,7 +6,7 @@
 
 ## 🚀 Deployment & Live Demo
 
-**Live Dashboard:** [Insert your Streamlit Cloud Link Here]
+**Live Dashboard:** https://nexuspointquickcommerce2026-k4uvqxnybqbmgxbctgmjtu.streamlit.app/
 
 This application is deployed live on **Streamlit Community Cloud**.
 
@@ -44,6 +44,8 @@ This dataset represents historical customer transactions. It is used to generate
 | `Category` | String | The primary product category (e.g., Grocery, Snacks, Pharmacy). |
 | `Order_Timestamp` | Datetime | The exact date and time of the order (Format: `YYYY-MM-DD HH:MM:SS`). |
 
+![Raw Orders Data Example](images/orders-data.png)
+
 ### 2. Supply Data (`properties.csv`)
 This dataset represents the available commercial real estate that can be converted into "Dark Stores". The engine cross-references these locations against the demand centroids to find the most cost-effective and geographically strategic hubs.
 
@@ -56,6 +58,8 @@ This dataset represents the available commercial real estate that can be convert
 | `Square_Footage` | Numeric | The physical size of the location. |
 | `Max_Daily_Orders` | Numeric | The maximum fulfillment capacity the location can handle per day. |
 
+![Raw Properties Data Example](images/properties-data.png)
+
 ---
 
 ## 📸 Platform Features & Visuals
@@ -63,20 +67,32 @@ This dataset represents the available commercial real estate that can be convert
 ### 1. Mission Control & Executive KPIs
 Provides a real-time, high-level overview of network health. It instantly calculates total projected profit, blended cost per order, total daily capacity, and network break-even points by factoring in product COGS, rider fees, and fixed store OPEX.
 
+![Executive KPIs Dashboard](images/kpi-dashboard.png)
+
 ### 2. AI Spatial Mapping & Anomaly Detection
 An interactive Folium map that visualizes exact customer demand density. It plots the optimal dark store centroids using K-Means clustering, overlays competitor threat radiuses, and uses an Isolation Forest algorithm to flag highly-localized flash surges.
+
+![Geospatial Mapping & Anomalies](images/spatial-map.png)
 
 ### 3. Dynamic Network Planner
 A tactical operations checklist allowing managers to toggle specific facilities on or off. The system instantly recalculates the live network profit, break-even targets, and maximum daily capacity based on the active hubs.
 
-### 4. AI Location Insights (Gemini 2.5 Flash Strategy)
+![Network Planner](images/network-planner.PNG)
+
+### 4. AI Location Insights (Gemini 3.6 Flash Strategy)
 Leverages Google AI Studio to generate a comprehensive, automated strategy card for any selected dark store. It analyzes order counts, top product categories, and local competitor threats to provide actionable operational directives under strict safety quotas.
+
+![AI Strategy Card](images/ai-strategy.png)
 
 ### 5. Operations: Rider Fleet Scheduling
 Translates raw, time-series volume predictions (via Prophet ML) into exact human headcount requirements. The hourly charts allow operations managers to precisely schedule delivery riders to match forecasted demand peaks without overstaffing.
 
+![Fleet Scheduling](images/fleet-forecast.png)
+
 ### 6. Product Category Analysis
 Custom, meticulously aligned Plotly charts that audit inventory performance. By comparing unit velocity (Bar Chart) against revenue weight (Pie Chart), it highlights which categories drive volume versus actual profitability.
+
+![Category Analytics](images/category-analysis.png)
 
 ---
 
@@ -89,9 +105,8 @@ nexus_point_2026/
 ├── app.py                  # The main Streamlit orchestrator (Layout, State, Routing)
 ├── requirements.txt        # Python dependencies
 ├── .streamlit/
-│   └── secrets.toml        # Streamlit Local Environment Secrets (API Keys)
+│   ├── secrets.toml        # streamlit secrets (API Keys) --> refere to the section 4
 ├── data/
-│   ├── api_lock.json       # Dynamic AI global quota limiter state
 │   ├── generator.py        # Script to generate synthetic geospatial order data
 │   ├── orders.csv          # Demand data
 │   └── properties.csv      # Supply data (Available real estate)
@@ -168,15 +183,19 @@ Instead of just showing raw predicted orders, Nexus Point translates time-series
   touch .streamlit/secrets.toml
 ```
 
-4. **Open .streamlit/secrets.toml and drop your API credentials:**
+4. **Open `.streamlit/secrets.toml` and drop your API credentials:**
+
    ```Ini, TOML
    GEMINI_API_KEY = "your_google_ai_studio_api_key_here"
    ORS_API_KEY = "your_openrouteservice_api_key_here"
    OPENWEATHER_API_KEY = "your_openweather_api_key_here"
    ```
-5. ** Launch the application:**
+
+5. **Launch the application:**
+
    ```bash
    streamlit run app.py
+   ```
 
 *Enjoy optimizing the future of delivery! 📦⚡*
 
