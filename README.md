@@ -176,12 +176,12 @@ Instead of just showing raw predicted orders, Nexus Point translates time-series
    ```
 
 3. **Set up Local Secrets Management:**
-  Streamlit reads configuration variables out of a local `.streamlit` configuration directory. Create the folder and config file in your root environment:
+   Streamlit reads configuration variables out of a local `.streamlit` configuration directory. Create the folder and config file in your root environment:
 
-  ```bash
-  mkdir .streamlit
-  touch .streamlit/secrets.toml
-```
+   ```bash
+   mkdir .streamlit
+   touch .streamlit/secrets.toml
+   ```
 
 4. **Open `.streamlit/secrets.toml` and drop your API credentials:**
 
