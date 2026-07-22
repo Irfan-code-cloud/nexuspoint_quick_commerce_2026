@@ -1,13 +1,5 @@
-import os
-import vertexai
-from vertexai.generative_models import GenerativeModel
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Initialize Vertex AI
-vertexai.init(project="fleet-ai-project", location="us-central1")
+import streamlit as st
+import google.generativeai as genai
 
 
 def generate_store_strategy(
@@ -27,7 +19,11 @@ def generate_store_strategy(
     Generates a Quick Commerce location strategy using Gemini 2.5 Flash.
     Enforces strict Markdown formatting and sentence constraints for readability.
     """
-    model = GenerativeModel("gemini-2.5-flash")
+    # Configure the free API key directly from Streamlit secrets
+    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+    
+    # Initialize the model using the new library
+    model = genai.GenerativeModel("gemini-3.6-flash")
 
     # Dynamic Competitor Threat Prompt Injection
     threat_instruction = ""

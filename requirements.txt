@@ -3,7 +3,7 @@ folium
 streamlit-folium
 scikit-learn
 pandas
-google-cloud-aiplatform
+google-generativeai
 geopy
 plotly
 python-dotenv
