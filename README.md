@@ -141,7 +141,7 @@ Nexus Point is built entirely in Python, leveraging the most powerful data scien
 * **Plotly:** Used exclusively for high-fidelity, interactive charts (Bar, Donut, and Predictive Line graphs).
 
 ### 5. Generative AI
-* **Google Generative AI SDK (`google-generativeai`):** Connects natively to Gemini 2.5 Flash to generate human-readable Executive Strategy Cards right out of your local or cloud secrets matrix.
+* **Google Generative AI SDK (`google-generativeai`):** Connects natively to Gemini 3.6 Flash Model to generate human-readable Executive Strategy Cards right out of your local or cloud secrets matrix.
 
 ---
 
