@@ -41,10 +41,20 @@ def generate_cluster_map(orders_df, store_locations):
     import numpy as np
 
     # Initialize a completely fresh map every time
-    # Using 'CartoDB dark_matter' for a sleek Mission Control aesthetic
-    m = folium.Map(
-        location=[24.8607, 67.0011], zoom_start=12, tiles="CartoDB dark_matter"
-    )
+    m = folium.Map(location=[24.8607, 67.0011], zoom_start=12, tiles="OpenStreetMap")
+    
+    # Inject the dark mode CSS directly into the map's internal HTML structure
+    dark_mode_css = """
+    <style>
+    .leaflet-tile-pane {
+        filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+    }
+    .leaflet-control-attribution {
+        filter: invert(100%) brightness(80%);
+    }
+    </style>
+    """
+    m.get_root().html.add_child(folium.Element(dark_mode_css))
 
     # 2. Add Demand Layer (HeatMap)
     if orders_df is not None and not orders_df.empty:
